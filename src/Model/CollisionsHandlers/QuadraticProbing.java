@@ -1,4 +1,4 @@
-package Model;
+package Model.CollisionsHandlers;
 
 public class QuadraticProbing {
 	public static int findQuadraticProbingIndex (int key, int [] data, int initialHashAddress) {

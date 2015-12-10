@@ -1,4 +1,4 @@
-package Model;
+package Model.CollisionsHandlers;
 
 public class LinearQuotientProbing {
 	public static int findLinearQuotientProbingIndex (int key, int [] data, int initialHashAddress) {
