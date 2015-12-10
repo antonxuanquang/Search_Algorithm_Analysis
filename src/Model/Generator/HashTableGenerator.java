@@ -2,9 +2,7 @@ package Model.Generator;
 
 import java.util.ArrayList;
 
-import Model.CollisionsHandlers.LinearProbing;
-import Model.CollisionsHandlers.LinearQuotientProbing;
-import Model.CollisionsHandlers.QuadraticProbing;
+import Model.SearchSimulation;
 import Model.HashingFunctions.DivisionHashFunction;
 
 public class HashTableGenerator {
@@ -15,7 +13,10 @@ public class HashTableGenerator {
 			case "Division Method": {
 				for (int key: dataTable) {
 					int initialHashAddress = DivisionHashFunction.divisionHash(key, tableSize);
-					putKeyIntoHashTable(key, initialHashAddress, collisionHandler, hashTable);
+					int index = SearchSimulation.findKeyInHashTable(key, initialHashAddress, collisionHandler, hashTable);
+					if (index > 0) {
+						hashTable[index] = key;
+					}
 				}
 				break;
 			}
@@ -23,31 +24,5 @@ public class HashTableGenerator {
 		return hashTable;
 	}
 
-	private static void putKeyIntoHashTable(int key, int initialHashAddress
-			, String collisionHandler, int[] hashTable) {
-		switch (collisionHandler) {
-			case "Linear Probing": {
-				int index = LinearProbing.findLinearProbingIndex(key, hashTable, initialHashAddress);
-				if (index > 0) {
-					hashTable[index] = key;
-				}
-				break;
-			}
-			case "Quadratic Probing": {
-				int index = QuadraticProbing.findQuadraticProbingIndex(key, hashTable, initialHashAddress);
-				if (index > 0) {
-					hashTable[index] = key;
-				}
-				break;
-			}
-			case "Linear Quotient Probing": {
-				int index = LinearQuotientProbing.findLinearQuotientProbingIndex(key, hashTable, initialHashAddress);
-				if (index > 0) {
-					hashTable[index] = key;
-				}
-				break;
-			}
-		}
-		
-	}
+	
 }
