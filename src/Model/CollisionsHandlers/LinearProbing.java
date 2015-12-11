@@ -1,6 +1,8 @@
 package Model.CollisionsHandlers;
 
-public class LinearProbing {
+import Model.Counter;
+
+public class LinearProbing extends Counter{
 	
 	/**
 	 * Search the table data using linear probing.  If data[j] is empty
@@ -19,6 +21,7 @@ public class LinearProbing {
 		int j = initialHashAddress;
 		
 		while ((data[j] != key) && (data[j] != 0)) {
+			incrementComparison();
 			j = (j + 1) % data.length;
 			if (j == initialHashAddress) {
 				return -1;
