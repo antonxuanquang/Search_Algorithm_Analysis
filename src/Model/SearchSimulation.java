@@ -6,8 +6,8 @@ import Model.CollisionsHandlers.QuadraticProbing;
 
 public class SearchSimulation {
 	
-	public static int findKeyInHashTable(int key, int initialHashAddress
-			, String collisionHandler, int[] hashTable) {
+	public static int findKeyInHashTable(String key, int initialHashAddress
+			, String collisionHandler, String[] hashTable) {
 		switch (collisionHandler) {
 			case "Linear Probing": {
 				return LinearProbing.findLinearProbingIndex(key, hashTable, initialHashAddress);

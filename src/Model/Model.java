@@ -3,43 +3,43 @@ package Model;
 import java.util.ArrayList;
 
 public class Model {
-	private int [] hashTable;
-	private ArrayList<Integer> randomKeys, missingKeys, presentKeys;
+	private String [] hashTable;
+	private ArrayList<String> randomKeys, missingKeys, presentKeys;
 	private int tableSize;
 	private String collisionHandler, hashingFunction;
 	private Counter count = new Counter();
 	
 	public Model() {}
 	
-	public int[] getHashTable() {
+	public String[] getHashTable() {
 		return hashTable;
 	}
 	
-	public void setHashTable (int [] table) {
+	public void setHashTable (String [] table) {
 		hashTable = table;
 	}
 	
-	public ArrayList<Integer> getRandomKeysTable() {
+	public ArrayList<String> getRandomKeysTable() {
 		return randomKeys;
 	}
 	
-	public void setRandomKeysTable(ArrayList<Integer> table) {
+	public void setRandomKeysTable(ArrayList<String> table) {
 		randomKeys = table;
 	}
 	
-	public ArrayList<Integer> getMissingKeysTable() {
+	public ArrayList<String> getMissingKeysTable() {
 		return missingKeys;
 	}
 	
-	public void setMissingKeysTable(ArrayList<Integer> table) {
+	public void setMissingKeysTable(ArrayList<String> table) {
 		missingKeys = table;
 	}
 	
-	public ArrayList<Integer> getPresentKeysTable() {
+	public ArrayList<String> getPresentKeysTable() {
 		return presentKeys;
 	}
 	
-	public void setPresentKeysTable(ArrayList<Integer> table) {
+	public void setPresentKeysTable(ArrayList<String> table) {
 		presentKeys = table;
 	}
 	

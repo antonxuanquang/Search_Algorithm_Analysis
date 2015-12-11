@@ -36,13 +36,13 @@ public class MainController implements ActionListener{
 		model.getCounterObject().setComparison(0);
 		String dataFile = view.getSelectedValueOfGroupDataFile();
 		if (dataFile.equals("Missing Keys Table")) {
-			for (int key: model.getMissingKeysTable()) {
+			for (String key: model.getMissingKeysTable()) {
 				int initialHashAddress = DivisionHashFunction.divisionHash(key, model.getTableSize());
 				int index = SearchSimulation.findKeyInHashTable(key, initialHashAddress,
 						model.getCollisionHandler(), model.getHashTable());
 			}
 		} else {
-			for (int key: model.getPresentKeysTable()) {
+			for (String key: model.getPresentKeysTable()) {
 				int initialHashAddress = DivisionHashFunction.divisionHash(key, model.getTableSize());
 				int index = SearchSimulation.findKeyInHashTable(key, initialHashAddress,
 						model.getCollisionHandler(), model.getHashTable());

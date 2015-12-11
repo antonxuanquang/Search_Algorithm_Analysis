@@ -14,8 +14,8 @@ public class DataTableGenerator {
 	
 	public DataTableGenerator() {}
 	
-	public ArrayList<Integer> readAFile() {
-		ArrayList<Integer> result = new ArrayList<Integer> ();
+	public ArrayList<String> readAFile() {
+		ArrayList<String> result = new ArrayList<String> ();
 		File file = getFile();
 		
 		if (file != null) {
@@ -29,19 +29,13 @@ public class DataTableGenerator {
 					StringTokenizer st = new StringTokenizer(line);
 					while (st.hasMoreTokens()) {
 						String key = st.nextToken();
-						int temp = convertToInteger(key);
-						result.add(temp);
+						result.add(key);
 					}
 				}
 				bf.close();
 			} catch (IOException e) {}
 		}
 		return result;
-	}
-	
-	public int convertToInteger(String key) {
-	   char c1 = key.charAt(0), c2 = key.charAt(1), c3 = key.charAt(2), c4 = key.charAt(3);
-	   return (int)((((((int)c1<<8)+(int)c2)<<8)+(int)c3)<<8)+(int)c4;
 	}
 
 	

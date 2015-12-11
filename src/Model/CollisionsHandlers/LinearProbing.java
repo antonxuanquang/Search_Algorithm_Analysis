@@ -17,10 +17,10 @@ public class LinearProbing extends Counter{
 				Position that key can be inserted, or –1 if the table is full. 
 	 */
 	
-	public static int findLinearProbingIndex(int key, int [] data, int initialHashAddress) {
+	public static int findLinearProbingIndex(String key, String [] data, int initialHashAddress) {
 		int j = initialHashAddress;
 		
-		while ((data[j] != key) && (data[j] != 0)) {
+		while ((data[j] != null) && !(data[j].equals(key))) {
 			incrementComparison();
 			j = (j + 1) % data.length;
 			if (j == initialHashAddress) {

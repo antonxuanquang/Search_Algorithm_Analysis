@@ -6,12 +6,12 @@ import Model.SearchSimulation;
 import Model.HashingFunctions.DivisionHashFunction;
 
 public class HashTableGenerator {
-	public static int[] createHashTable(String hashFunction, String collisionHandler, 
-			int tableSize, ArrayList<Integer> dataTable) {
-		int[] hashTable = new int[tableSize];
+	public static String[] createHashTable(String hashFunction, String collisionHandler, 
+			int tableSize, ArrayList<String> dataTable) {
+		String[] hashTable = new String[tableSize];
 		switch (hashFunction) {
 			case "Division": {
-				for (int key: dataTable) {
+				for (String key: dataTable) {
 					int initialHashAddress = DivisionHashFunction.divisionHash(key, tableSize);
 					int index = SearchSimulation.findKeyInHashTable(key, initialHashAddress, collisionHandler, hashTable);
 					if (index > 0) {
