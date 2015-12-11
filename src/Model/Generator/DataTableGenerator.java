@@ -14,6 +14,11 @@ public class DataTableGenerator {
 	
 	public DataTableGenerator() {}
 	
+	/**
+	 * Read a file then add all the keys to an arraylist
+	 * @return arraylist contains all the keys
+	 */
+	
 	public ArrayList<String> readAFile() {
 		ArrayList<String> result = new ArrayList<String> ();
 		File file = getFile();

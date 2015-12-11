@@ -3,6 +3,18 @@ package Model.CollisionsHandlers;
 import Model.Counter;
 
 public class LinearQuotientProbing extends Counter{
+	
+	/**
+	 * Search the table, data, using Linear Quotient probing. Secondary clustering can be 
+	 * 		eliminated by choosing a secondary hashing function f that is a function of 
+	 * 		both the key and the probe number.  That is: hi = (h0 + f(i,key)) mod tableSize.
+	 * @param key key to be inserted or search
+	 * @param data the hash table (a prime number size) to search
+	 * @param initialHashAddress initial hash address after applied hashing function
+	 * @return the address of the key (if already in the table), or the
+				Position that key can be inserted, or –1 if the table is full.
+
+	 */
 	public static int findLinearQuotientProbingIndex (String key, String [] data, int initialHashAddress) {
 		int j = initialHashAddress;
 		int quotient = convertToInteger(key) / data.length;

@@ -1,6 +1,16 @@
 package Model.HashingFunctions;
 
 public class DivisionHashFunction {
+	
+	/**
+	 * 
+	 * the hash address of division method is calculated by:
+	 * h = key % table size
+	 * 
+	 * @param key key to be searched
+	 * @param tableSize table size
+	 * @return initial hash address
+	 */
 	public static int divisionHash(String key, int tableSize) {
 		return convertToInteger(key) % tableSize;
 	}

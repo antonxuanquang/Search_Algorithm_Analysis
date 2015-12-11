@@ -31,7 +31,11 @@ public class MainController implements ActionListener{
 		else if (source == view.getBuildHashTableBtn()) buildHashTable();
 	}
 
-
+	/**
+	 * 1. Decide which data set is chosen to perform search, 
+	 * 2. Go through each key, using Hash fuction to determine the initial hash address
+	 * 3. Search the key basing on collision handling methods
+	 */
 	private void doSearchSimulation() {
 		model.getCounterObject().setComparison(0);
 		String dataFile = view.getSelectedValueOfGroupDataFile();
@@ -52,7 +56,11 @@ public class MainController implements ActionListener{
 		view.setAverageComparison((double)model.getCounterObject().getComparisons()/500);
 	}
 
-	
+	/**
+	 * 1. Collect information about collision handling method, hashing function, table size
+	 * 		and save it in Model
+	 * 2. Create a hash table basing on the collected information
+	 */
 	private void buildHashTable() {
 		model.setCollisionHandler(view.getSelectedValueOfGroupCollision());
 		model.setHashingFunction(view.getSelectedValueOfGroupHash());
@@ -69,21 +77,27 @@ public class MainController implements ActionListener{
 	}
 	
 	
-
+	/**
+	 * To build Random keys table
+	 */
 	private void buildRandomKeysTable() {
 		DataTableGenerator fileReader = new DataTableGenerator();
 		model.setRandomKeysTable(fileReader.readAFile());
 		view.setRandomFileName(fileReader.getFileName());
 	}
 
-
+	/**
+	 * To build a table of keys, which appear in the random keys table
+	 */
 	private void buildPresentKeysTable() {
 		DataTableGenerator fileReader = new DataTableGenerator();
 		model.setPresentKeysTable(fileReader.readAFile());
 		view.setPresentFileName(fileReader.getFileName());
 	}
 
-
+	/**
+	 * To build a table of keys, which don't appear in the random keys table
+	 */
 	private void buildMissingKeysTable() {
 		DataTableGenerator fileReader = new DataTableGenerator();
 		model.setMissingKeysTable(fileReader.readAFile());

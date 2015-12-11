@@ -3,6 +3,16 @@ package Model;
 import java.util.ArrayList;
 
 public class Model {
+	
+	/**
+	 * This class is the place to hold all data, including missing keys table, present 
+	 * 	keys table, random keys table, and the hash table after built
+	 * Additionally, this class also stores information about current collision handling 
+	 * 	method, hashing function, and table size
+	 * This is the only place where counter is initiate; hence keeping the data clean and
+	 * 	correct
+	 */
+	
 	private String [] hashTable;
 	private ArrayList<String> randomKeys, missingKeys, presentKeys;
 	private int tableSize;
