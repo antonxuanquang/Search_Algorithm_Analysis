@@ -4,8 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Model.Model;
+import Model.SearchSimulation;
 import Model.Generator.DataTableGenerator;
 import Model.Generator.HashTableGenerator;
+import Model.HashingFunctions.DivisionHashFunction;
 import View.View;
 
 public class MainController implements ActionListener{
@@ -30,6 +32,27 @@ public class MainController implements ActionListener{
 	}
 
 
+	private void doSearchSimulation() {
+		model.getCounterObject().setComparison(0);
+		String dataFile = view.getSelectedValueOfGroupDataFile();
+		if (dataFile.equals("Missing Keys Table")) {
+			for (int key: model.getMissingKeysTable()) {
+				int initialHashAddress = DivisionHashFunction.divisionHash(key, model.getTableSize());
+				int index = SearchSimulation.findKeyInHashTable(key, initialHashAddress,
+						model.getCollisionHandler(), model.getHashTable());
+			}
+		} else {
+			for (int key: model.getPresentKeysTable()) {
+				int initialHashAddress = DivisionHashFunction.divisionHash(key, model.getTableSize());
+				int index = SearchSimulation.findKeyInHashTable(key, initialHashAddress,
+						model.getCollisionHandler(), model.getHashTable());
+			}
+		}
+		view.setNumberOfComparison(model.getCounterObject().getComparisons());
+		view.setAverageComparison((double)model.getCounterObject().getComparisons()/500);
+	}
+
+	
 	private void buildHashTable() {
 		model.setCollisionHandler(view.getSelectedValueOfGroupCollision());
 		model.setHashingFunction(view.getSelectedValueOfGroupHash());
@@ -42,14 +65,10 @@ public class MainController implements ActionListener{
 				model.getRandomKeysTable())
 		);
 		view.setNumberOfComparison(model.getCounterObject().getComparisons());
-		view.setAverageComparison(model.getCounterObject().getComparisons()/5000);
+		view.setAverageComparison((double)model.getCounterObject().getComparisons()/5000);
 	}
-
-
-	private void doSearchSimulation() {
-		
-	}
-
+	
+	
 
 	private void buildRandomKeysTable() {
 		DataTableGenerator fileReader = new DataTableGenerator();
