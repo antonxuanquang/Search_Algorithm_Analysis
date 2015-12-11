@@ -3,8 +3,8 @@ package Theme;
 import java.awt.Color;
 
 public class ColorTheme {
-	static Color primary = new Color(0, 204, 204);
-	static Color secondary = new Color(0, 153, 153);
+	static Color primary = new Color(102, 102, 255);
+	static Color secondary = new Color(51, 51, 255);
 	
 	public ColorTheme() {}
 	
