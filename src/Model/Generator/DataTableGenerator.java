@@ -47,7 +47,7 @@ public class DataTableGenerator {
 	
 	private File getFile() {
 		JFileChooser fc = new JFileChooser("C:\\Users\\Quang Nguyen\\OneDrive"
-				+ "\\mon hoc\\Fall 2015\\CoSc 20803\\Search_Algorithms_Analysis");
+				+ "\\mon hoc\\Fall 2015\\CoSc 20803\\Search_Algorithm_Analysis");
 		int returnVal = fc.showOpenDialog(null);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			return fc.getSelectedFile();
