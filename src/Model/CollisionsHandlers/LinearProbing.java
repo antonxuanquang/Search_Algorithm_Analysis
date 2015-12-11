@@ -27,6 +27,7 @@ public class LinearProbing extends Counter{
 				return -1;
 			}
 		}
+		incrementComparison();
 		return j;
 	}
 }
