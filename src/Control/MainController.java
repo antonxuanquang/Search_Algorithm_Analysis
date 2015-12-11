@@ -57,15 +57,15 @@ public class MainController implements ActionListener{
 		model.setCollisionHandler(view.getSelectedValueOfGroupCollision());
 		model.setHashingFunction(view.getSelectedValueOfGroupHash());
 		model.setTableSize(view.getTableSize());
-		model.getCounterObject().setComparison(0);
+		model.getCounterObject().setCollisions(0);
 		model.setHashTable(HashTableGenerator.createHashTable(
 				model.getHashingFunction(), 
 				model.getCollisionHandler(), 
 				model.getTableSize(), 
 				model.getRandomKeysTable())
 		);
-		view.setNumberOfComparison(model.getCounterObject().getComparisons());
-		view.setAverageComparison((double)model.getCounterObject().getComparisons()/5000);
+		view.setNumberOfComparison(model.getCounterObject().getCollisions());
+		view.setAverageComparison((double)model.getCounterObject().getCollisions()/5000);
 	}
 	
 	

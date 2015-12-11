@@ -21,6 +21,7 @@ public class LinearProbing extends Counter{
 		int j = initialHashAddress;
 		
 		while ((data[j] != null) && !(data[j].equals(key))) {
+			incrementCollisions();
 			incrementComparison();
 			j = (j + 1) % data.length;
 			if (j == initialHashAddress) {

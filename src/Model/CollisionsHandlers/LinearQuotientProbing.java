@@ -11,6 +11,7 @@ public class LinearQuotientProbing extends Counter{
 		}
 		int i = 0;
 		while ((data[j] != null) && !(data[j].equals(key))) {
+			incrementCollisions();
 			incrementComparison();
 			i++;
 			j = (initialHashAddress + i*quotient) % data.length;

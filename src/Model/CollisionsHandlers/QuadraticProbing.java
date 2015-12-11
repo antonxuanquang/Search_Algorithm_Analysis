@@ -6,7 +6,8 @@ public class QuadraticProbing extends Counter {
 	public static int findQuadraticProbingIndex (String key, String [] data, int initialHashAddress) {
 		int j = initialHashAddress;
 		int i = 0;
-		while (!(data[j].equals(key)) && !(data[j].equals(null))) {
+		while ((data[j] != null) && !(data[j].equals(key))) {
+			incrementCollisions();
 			incrementComparison();
 			i++;
 			j = (initialHashAddress + i*i) % data.length;
